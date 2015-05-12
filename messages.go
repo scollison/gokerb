@@ -4,10 +4,11 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"github.com/jmckaskill/asn1"
 	"io"
 	"strings"
 	"time"
+
+	"github.com/jmckaskill/asn1"
 )
 
 // Remote error codes
@@ -138,7 +139,7 @@ const (
 	paETypeInfo2
 )
 
-// Encryption algorithms
+// Encryption algorithms, from https://tools.ietf.org/html/rfc3961#section-8
 const (
 	cryptDesCbcMd4 = 2
 	cryptDesCbcMd5 = 3
@@ -149,6 +150,10 @@ const (
 	signMd5Des     = 8
 	signRc4Hmac    = -138
 	signGssFake    = 0x8003
+
+	// AES crypto suites
+	cryptAES128CtsHmacSha1_96 = 17
+	cryptAES256CtsHmacSha1_96 = 18
 
 	cryptGssDes     = 0x0000
 	cryptGssRc4Hmac = 0x1000
